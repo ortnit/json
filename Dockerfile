@@ -9,7 +9,7 @@ RUN apt-get install software-properties-common -y \
     && add-apt-repository ppa:ondrej/php -y \
     && apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y php8.1-cli php8.1-dom php8.1-mbstring php8.1-xml php8.1-xmlwriter php8.1-xdebug
+    && apt-get install -y php8.1-cli php8.1-dom php8.1-mbstring php8.1-xml php8.1-xmlwriter php8.1-xdebug php8.1-json
 
 RUN rm -rf /var/lib/apt/lists/*
 

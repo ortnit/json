@@ -61,10 +61,6 @@
 
 
     <rule ref="PSR12">
-        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
-        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
-        <exclude name="PSR12.Functions.ReturnTypeDeclaration.SpaceBeforeColon"/>
-        <exclude name="PSR2.Classes.PropertyDeclaration.SpacingAfterType" />
     </rule>
 
     <!--
