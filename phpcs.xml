@@ -32,9 +32,7 @@
         relative to the ruleset's location, and that specifying any file or
         directory path on the command line will ignore all file tags.
      -->
-    <file>src</file>
-    <file>bootstrap.php</file>
-    <file>app.php</file>
+    <file>./</file>
 
     <!--
        You can hard-code ignore patterns directly into your
@@ -44,6 +42,7 @@
        The following two tags are equivalent to the command line argument:
        -ignore=*/tests/*,*/data/*
     -->
+    <exclude-pattern>vendor/*</exclude-pattern>
 
     <!--
        You can hard-code command line values into your custom standard.

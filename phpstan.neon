@@ -4,5 +4,3 @@ parameters:
 		- src
 	fileExtensions:
 	    - php
-	bootstrapFiles:
-	    - bootstrap.php
