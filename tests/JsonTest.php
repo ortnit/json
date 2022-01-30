@@ -70,4 +70,22 @@ class JsonTest extends TestCase
 
         $this->assertEquals($expectedResult, $result);
     }
+
+    /**
+     * @return void
+     * @throws JsonException
+     */
+    public function testJsonEncode()
+    {
+        $data = [
+            'test' => 123,
+            'foo' => 'bar',
+        ];
+
+        $expectedResult = file_get_contents('tests/resources/valid.json');
+
+        $result = Json::encode($data);
+
+        $this->assertEquals($expectedResult, $result);
+    }
 }
