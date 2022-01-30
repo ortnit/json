@@ -18,15 +18,20 @@ class JsonTest extends TestCase
         Json::encode($text);
     }
 
-    /*public function testSetOptions() {
+    /**
+     * @return void
+     */
+    public function testSetOptions()
+    {
         $options = [
             JSON_UNESCAPED_SLASHES,
             JSON_PRETTY_PRINT,
-            JSON_PARSER_NOTSTRICT
+            JSON_BIGINT_AS_STRING,
         ];
         Json::setOptions(...$options);
 
-    }*/
+        $this->assertEquals($options, Json::getOptions());
+    }
 
     /**
      * @throws JsonException

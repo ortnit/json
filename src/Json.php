@@ -30,7 +30,7 @@ class Json
      */
     public static function encode($data): string
     {
-        $json = json_encode($data, static::getOptions());
+        $json = json_encode($data, static::getOptionValue());
         if (json_last_error()) {
             throw new JsonException(json_last_error_msg(), json_last_error());
         }
@@ -42,7 +42,7 @@ class Json
      * function to decode json formatted strings to arrays
      *
      * @param string $content
-     * @param bool   $assoc
+     * @param bool $assoc
      *
      * @return mixed
      * @throws JsonException
@@ -65,11 +65,19 @@ class Json
      *
      * @return int
      */
-    protected static function getOptions(): int
+    public static function getOptionValue(): int
     {
         return array_reduce(static::$options, function (int $carry, int $value) {
             return $carry | $value;
         }, 0);
+    }
+
+    /**
+     * @return array
+     */
+    public static function getOptions(): array
+    {
+        return static::$options;
     }
 
     /**
