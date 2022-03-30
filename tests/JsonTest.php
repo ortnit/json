@@ -2,14 +2,13 @@
 
 namespace Test;
 
-use Ortnit\Json\Exception\JsonException;
+use JsonException;
 use Ortnit\Json\Json;
 use PHPUnit\Framework\TestCase;
 
 class JsonTest extends TestCase
 {
     /**
-     * @throws JsonException
      */
     public function testFailedJsonEncode()
     {

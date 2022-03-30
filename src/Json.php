@@ -2,8 +2,6 @@
 
 namespace Ortnit\Json;
 
-use Ortnit\Json\Exception\JsonException;
-
 /**
  * Class Json
  *
@@ -26,16 +24,10 @@ class Json
      * @param $data
      *
      * @return string
-     * @throws JsonException
      */
     public static function encode($data): string
     {
-        $json = json_encode($data, static::getOptionValue());
-        if (json_last_error()) {
-            throw new JsonException(json_last_error_msg(), json_last_error());
-        }
-
-        return $json;
+        return json_encode($data, static::getOptionValue());
     }
 
     /**
@@ -45,16 +37,12 @@ class Json
      * @param bool $assoc
      *
      * @return mixed
-     * @throws JsonException
      */
     public static function decode(string $content, bool $assoc = true)
     {
         $json = null;
         if (strlen($content) != 0) {
-            $json = json_decode($content, $assoc);
-            if (json_last_error()) {
-                throw new JsonException(json_last_error_msg(), json_last_error());
-            }
+            $json = json_decode($content, $assoc, 512, static::getOptionValue());
         }
 
         return $json;
@@ -69,7 +57,7 @@ class Json
     {
         return array_reduce(static::$options, function (int $carry, int $value) {
             return $carry | $value;
-        }, 0);
+        }, JSON_THROW_ON_ERROR);
     }
 
     /**
