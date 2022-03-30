@@ -23,6 +23,7 @@ class Json
     /**
      * @param $data
      *
+     * @throw JsonException
      * @return string
      */
     public static function encode($data): string
@@ -36,6 +37,7 @@ class Json
      * @param string $content
      * @param bool $assoc
      *
+     * @throw JsonException
      * @return mixed
      */
     public static function decode(string $content, bool $assoc = true)
